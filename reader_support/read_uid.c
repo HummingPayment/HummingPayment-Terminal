@@ -9,7 +9,7 @@ static nfc_context *context = NULL;
 
 static const char *hex_table = "0123456789abcdef";
 
-static int convert_to_hex_string(unsigned char *data, size_t length, char *target) { // target.length should be at least data.length*2+1
+static int encode_to_hex_string(unsigned char *data, size_t length, char *target) { // target.length should be at least data.length*2+1
   int i;
   int pos = 0;
 
@@ -38,7 +38,7 @@ char * read_uid(struct context *cxt) {
 
   if (nfc_initiator_select_passive_target(pnd, nmMifare, NULL, 0, &nt) > 0) {
     if(nt.nti.nai.szUidLen > 32) return NULL;
-    convert_to_hex_string(nt.nti.nai.abtUid, nt.nti.nai.szUidLen, result);
+    encode_to_hex_string(nt.nti.nai.abtUid, nt.nti.nai.szUidLen, result);
     return result;
   }
 

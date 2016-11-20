@@ -1,16 +1,15 @@
 import time
-import wiringpi
 from threading import Thread, Event, Lock
 from gpiozero import RGBLED, Buzzer
 
-from dothat import lcd
+from dot3k import lcd
 from interface_strings import *
-
-lcd.set_display_mode()
-lcd.set_contrast(20)
 
 import locale
 locale.setlocale(locale.LC_ALL, display_locale)
+
+lcd.set_display_mode()
+lcd.set_contrast(20)
 
 backlight = RGBLED(5, 6, 13)
 

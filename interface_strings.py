@@ -1,6 +1,6 @@
 display_locale = "en_US.utf8"
 
-return_code = {
+message_code = {
     10: "    Unlocked    ",
 
     1: "Transaction Done",

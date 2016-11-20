@@ -14,7 +14,6 @@ class Reader():
             self.lib = ffi.dlopen("./reader_support/read_uid.so")
         except OSError:
             print("ATTENTION: You need to compile code under ./reader_support/ first.")
-        finally:
             raise RuntimeError
 
     def _read_uid(self):
