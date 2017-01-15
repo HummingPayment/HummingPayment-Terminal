@@ -1,7 +1,12 @@
-import uuid
+# from gevent import monkey
+# monkey.patch_thread()
+# monkey.patch_time()
+
 import time
-import sys
 from threading import Thread
+
+import uuid
+import sys
 
 import interface
 
@@ -13,8 +18,8 @@ except ConnectionRefusedError:
     raise ConnectionRefusedError
 
 from reader import Reader
-
 reader = Reader()
+
 terminal = TerminalWithHardwareidentifier(str(uuid.getnode()))
 terminal_id = terminal.get_terminal_id()
 terminal_enabled = terminal.check_terminal_enabled()

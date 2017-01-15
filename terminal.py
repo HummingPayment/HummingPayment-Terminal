@@ -36,6 +36,7 @@ class TerminalWithHardwareidentifier(Terminal):
     def __init__(self, terminal_hardwareidentifier):
         terminal_id = database.get_terminal_id_from_terminal_hardwareidentifier(terminal_hardwareidentifier)
         if terminal_id is None:
+            print("Hardware Identifier:", terminal_hardwareidentifier)
             raise RuntimeError('Hardware Identifier not found in the database.')
         self.terminal_hardwareidentifier = terminal_hardwareidentifier
         self.terminal_id = terminal_id

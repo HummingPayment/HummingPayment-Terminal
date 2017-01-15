@@ -1,5 +1,6 @@
 import time
-from threading import Thread, Event, Lock
+from threading import Thread, Lock
+
 from gpiozero import RGBLED, Buzzer
 
 from dot3k import lcd
@@ -23,7 +24,7 @@ terminal_amount = 0
 
 lcd.create_animation(7, [[0b00000,0b10001,0b01010,0b00100,0b10001,0b01010,0b00100,0b00000],[0b00000,0b00000,0b00000,0b00000,0b00000,0b00000,0b00000,0b00000]], 1)
 
-def _default():
+def _idle():
     while 1:
         if message_lock.locked() == False:
             lcd.clear()
@@ -50,9 +51,9 @@ def _default():
         else:
             time.sleep(0.25)
 
-t_default = Thread(target=_default, name="t_default", args=())
-t_default.daemon = True
-t_default.start()
+t_idle = Thread(target=_idle, name="t_idle", args=())
+t_idle.daemon = True
+t_idle.start()
 
 def _message_output(code):
     if code == 1:

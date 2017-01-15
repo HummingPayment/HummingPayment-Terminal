@@ -12,7 +12,7 @@ message_code = {
     -11: "Server Not\nAvailable",
 
     -21: "Unknon Card",
-    -22: "Insufficent Bal.",
+    -22: "Insuffcient Bal.",
     -23: "Auth Required",
 }
 
