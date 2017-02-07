@@ -46,6 +46,13 @@ def check_if_user_id_exists(user_id):
     else:
         return False
 
+def register_user(user_name, card_id):
+    cursor = cnx.cursor()
+    cursor.execute('INSERT INTO '+USERS_TABLE_NAME+' ('+USER_NAME_COL+', '+CARD_ID_COL+') VALUES (%(USER_NAME)s, %(CARD_ID)s)', {"USER_NAME": user_name, "CARD_ID": card_id})
+    cursor.close()
+    user_id = get_user_id_from_card_id(card_id)
+    return user_id
+
 def log_transaction(transaction_user_id, transaction_amount=None, transaction_initializedby_user_id=None, transaction_terminal_id=None):
     cursor = cnx.cursor()
     cursor.execute('INSERT INTO '+TRANSACTION_LOG_TABLE_NAME+' ('+TRANSACTION_USER_ID_COL+', '+TRANSACTION_AMOUNT_COL+', '+TRANSACTION_INITIALIZEDBY_USER_ID_COL+', '+TRANSACTION_TERMINAL_ID_COL+') VALUES (%(TRANSACTION_USER_ID)s, %(TRANSACTION_AMOUNT)s, %(TRANSACTION_INITIALIZEDBY_USER_ID)s, %(TRANSACTION_TERMINAL_ID)s)', {"TRANSACTION_USER_ID": transaction_user_id, "TRANSACTION_AMOUNT": transaction_amount, "TRANSACTION_INITIALIZEDBY_USER_ID": transaction_initializedby_user_id, "TRANSACTION_TERMINAL_ID": transaction_terminal_id})
@@ -134,6 +141,12 @@ def check_terminal_enabled(terminal_id):
 def update_terminal_enabled(terminal_id, terminal_enabled):
     cursor = cnx.cursor()
     cursor.execute('UPDATE '+TERMINALS_TABLE_NAME+' SET '+TERMINAL_ENABLED_COL+' = %(TERMINAL_ENABLED)s WHERE '+TERMINAL_ID_COL+' = %(TERMINAL_ID)s', {"TERMINAL_ID": terminal_id, "TERMINAL_ENABLED": terminal_enabled})
+    cursor.close()
+    return
+
+def update_terminal_amount(terminal_id, terminal_amount):
+    cursor = cnx.cursor()
+    cursor.execute('UPDATE '+TERMINALS_TABLE_NAME+' SET '+TERMINAL_AMOUNT_COL+' = %(TERMINAL_AMOUNT)s WHERE '+TERMINAL_ID_COL+' = %(TERMINAL_ID)s', {"TERMINAL_ID": terminal_id, "TERMINAL_AMOUNT": terminal_amount})
     cursor.close()
     return
 

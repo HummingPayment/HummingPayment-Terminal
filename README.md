@@ -18,11 +18,14 @@ It is meant to be modular and easy to be adapted for your hardware setup.
 * Proper PIP Packaging [Not before beta]
 
 ## Support us
+* Telegram Group:
+  <br>https://t.me/joinchat/AAAAAAtnSDgqfKPpYUb7_w
 
 * @AndiCui
-  <br>Contact: https://t.me/AndiCui<br>
-  <i>For hardware costs like card readers, Raspberry Pis: </i><br>
-  Bitcoin: 1Hos55j6qP7VytqTJmLbB3Z8KBnayCX8TP
-  
+  <br>Contact: https://t.me/AndiCui
+  <br><i>For hardware costs like card readers, Raspberry Pis: </i>
+  <br>Bitcoin: 1Hos55j6qP7VytqTJmLbB3Z8KBnayCX8TP
+  <br>PayPal: https://www.paypal.me/AndiCui/
+
 * @losfair
   <br>Contact: https://t.me/zhy0919<br>

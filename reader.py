@@ -1,3 +1,4 @@
+import os
 import cffi
 
 ffi = cffi.FFI()
@@ -11,7 +12,8 @@ char * read_uid(void *);
 class Reader():
     def __init__(self):
         try:
-            self.lib = ffi.dlopen("./reader_support/read_uid.so")
+            reader_support_path = os.path.join(os.path.dirname(__file__), 'reader_support/read_uid.so')
+            self.lib = ffi.dlopen(reader_support_path)
         except OSError:
             print("ATTENTION: You need to compile code under ./reader_support/ first.")
             raise RuntimeError

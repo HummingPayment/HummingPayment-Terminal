@@ -25,6 +25,9 @@ class Terminal():
     def disable_terminal(self):
         self.update_terminal_enabled(0)
 
+    def update_terminal_amount(self, terminal_amount):
+        database.update_terminal_amount(self.terminal_id, terminal_amount)
+
     def get_terminal_amount(self):
         return database.get_terminal_amount(self.terminal_id)
 
